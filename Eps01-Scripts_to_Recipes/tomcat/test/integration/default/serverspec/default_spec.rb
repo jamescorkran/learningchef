@@ -15,7 +15,7 @@ describe 'tomcat::default' do
 
 	describe user('tomcat') do
 		it { should exist }
-		it { shoould belong_to_group 'tomcat' }
+		it { should belong_to_group 'tomcat' }
 		it { should have_home_directory '/opt/tomcat'}
 	end
 end
