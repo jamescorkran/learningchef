@@ -8,4 +8,14 @@ describe 'tomcat::default' do
 	describe package('java-1.7.0-openjdk-devel') do
 		it { should be_installed }
 	end
+
+	describe group('tomcat') do
+		it { should exist }
+	end
+
+	describe user('tomcat') do
+		it { should exist }
+		it { shoould belong_to_group 'tomcat' }
+		it { should have_home_directory '/opt/tomcat'}
+	end
 end
