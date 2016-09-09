@@ -23,4 +23,8 @@ describe 'tomcat::default' do
 		it { should exist }
 		it { should be_directory }
 	end
+
+	describe file('/opt/tomcat/conf') do
+		it { should exist }
+		it { should be_mode 70 }
 end
