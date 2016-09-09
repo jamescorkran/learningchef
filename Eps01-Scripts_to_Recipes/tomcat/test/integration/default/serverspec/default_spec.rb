@@ -18,4 +18,9 @@ describe 'tomcat::default' do
 		it { should belong_to_group 'tomcat' }
 		it { should have_home_directory '/opt/tomcat'}
 	end
+
+	describe file('/opt/tomcat') do
+		it { should exist }
+		it { should be_directory }
+	end
 end
