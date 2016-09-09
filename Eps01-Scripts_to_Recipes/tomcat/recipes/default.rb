@@ -26,7 +26,19 @@ end
 # execute sudo mkdir /opt/tomcat
 directory '/opt/tomcat' do
 	# action :create
+	group 'tomcat'
 end
 
-# unzip the tar file
+# unzip the tar file, TODO: NOT DESIRED STATE
 execute 'tar xvf apache-tomcat-8*tar.gz -C /opt/tomcat --strip-components=1'
+
+# TODO: NOT DESIRED STATE
+execute 'chgrp -R tomcat conf'
+
+# execute sudo chmod g+rwx conf
+directory '/opt/tomcat/conf' do
+	mode '0070'
+end
+
+# TODO: NOT DESIRED STATE
+execute 'chmod g+r conf/*'
