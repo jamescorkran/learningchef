@@ -42,3 +42,6 @@ end
 
 # TODO: NOT DESIRED STATE
 execute 'chmod g+r conf/*'
+
+# TODO: NOT DESIRED STATE
+execute 'chown -R tomcat webapps/ work/ temp/ logs/'
